@@ -1,21 +1,28 @@
-#JUEGO DE PIEDRA PAPEL O TIJERAS
-import random
+import random  
 
-piedra=1
-papel=2
-tijera=3
-opciones=("PIEDRA","PAPEL","TIJERAS")
-print("BIENVENIDO AL JUEGO PIEDRA, PAPEL O TIJERAS!!")
-jugador= str(input(print("ELIGE PIEDRA PAPEL O TIJERA")))
-pc=random.choice(opciones)
-print("TU ELEGISTE:", jugador, "Y LA COMPUTADORA ELIGIO", pc)
-if jugador == pc:
-    print("ES UN EMPATE!!!!!")
-elif jugador == ("PIEDRA") and pc == ("TIJERAS"):
-    print("GANASTE!")
-elif jugador == ("PAPEL") and pc == ("PIEDRA"): 
-    print("GANASTE!")
-elif jugador == ("TIJERAS") and pc == ("PAPEL"):
-    print("GANASTE!")
-else:
-    print("HAS PERDIDO :C ")
+print("BIENVENIDO AL JUEGO DE PIEDRA PAPEL O TIJERAS")
+print("Escribe 'salir' para terminar.\n")
+opciones = ("piedra", "papel", "tijeras")
+
+while True:  
+    jugador = input("ELIJE ENTRE: (piedra✊/papel✋/tijeras✌): ")
+
+    if jugador in ("salir"):
+        print("VUELVE PRONTO!")
+        break  
+
+    if jugador not in opciones:
+        print("Entrada inválida. Intenta otra vez.\n")
+        continue  
+
+    pc = random.choice(opciones)
+    print(f"Usuario:{jugador}  |  Computadora: {pc}")
+
+    if jugador == pc:
+        print("Resultado: ¡Empate!")
+    elif (jugador == "piedra" and pc == "tijeras") or \
+         (jugador == "papel" and pc == "piedra") or \
+         (jugador == "tijeras" and pc == "papel"):
+        print("Resultado: ¡Ganaste!")
+    else:
+        print("PARECE QUE HAZ PERDIDO! 😒")
